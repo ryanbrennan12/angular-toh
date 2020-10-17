@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Angular Tour of Heroes';
+  title = 'Tour of Presidents';
 }
 
 // You created the initial application structure using the Angular CLI.

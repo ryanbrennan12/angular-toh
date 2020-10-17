@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from 'hero';
+import { Hero } from 'interfaces/hero';
 import { HEROES } from '../mock-heroes';
 
 @Component({
@@ -13,11 +13,10 @@ import { HEROES } from '../mock-heroes';
 export class HeroesComponent implements OnInit {
   //this exposes the HEROES array for binding!
   heroes = HEROES;
-  //this is ducktyping
+  //this is ducktyping. undefined
   selectedHero: Hero;
 
   onSelect(hero: Hero): void {
-    console.log('click');
     this.selectedHero = hero;
   }
 
