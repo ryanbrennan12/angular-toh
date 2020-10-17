@@ -11,13 +11,19 @@ import { HEROES } from '../mock-heroes';
 // define a component property called heroes
 // to expose the HEROES array for binding.
 export class HeroesComponent implements OnInit {
+  //this exposes the HEROES array for binding!
   heroes = HEROES;
+  //this is ducktyping
+  selectedHero: Hero;
 
-  hero: Hero = {
-    id: 1,
-    name: 'Brennan',
-  };
+  onSelect(hero: Hero): void {
+    console.log('click');
+    this.selectedHero = hero;
+  }
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('HEYYY', this.selectedHero);
+  }
 }
