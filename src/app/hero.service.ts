@@ -1,9 +1,14 @@
+import { Hero } from 'interfaces/hero';
+import { HEROES } from './mock-heroes';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HeroService {
+  constructor() {}
 
-  constructor() { }
+  getHeroes(): Hero[] {
+    return HEROES;
+  }
 }

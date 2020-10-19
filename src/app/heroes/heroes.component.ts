@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from 'interfaces/hero';
 import { HEROES } from '../mock-heroes';
+import { HeroService } from 'src/app/hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -12,17 +13,21 @@ import { HEROES } from '../mock-heroes';
 // to expose the HEROES array for binding.
 export class HeroesComponent implements OnInit {
   //this exposes the HEROES array for binding!
-  heroes = HEROES;
+  heroes: Hero[];
   //this is ducktyping. undefined
   selectedHero: Hero;
+
+  constructor(private heroService: HeroService) {}
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
 
-  constructor() {}
-
   ngOnInit(): void {
-    console.log('HEYYY', this.selectedHero);
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
   }
 }
